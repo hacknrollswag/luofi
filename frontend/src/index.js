@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Gifplayer from 'react-gif-player';
 
 ReactDOM.render(
   <React.StrictMode>
