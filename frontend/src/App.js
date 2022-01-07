@@ -2,8 +2,7 @@ import './App.css';
 import { useState, setState } from 'react';
 import Player from './component/player.js';
 import mockGifs from './assets/data/mockGifs';
-import SearchButton from "./component/search-button.component.js"
-import SearchBar from "./component/search-bar.component.js"
+import Search from "./component/search.component.js"
 
 export default function App() {
 
@@ -28,8 +27,7 @@ export default function App() {
 
   return (
     <div className="App" style={gifStyles}>
-        <SearchBar />
-        <SearchButton />
+        <Search />
         <Player />
         <div style={{width: "100%", height: "800px"}}
           onClick={changeImg} />
