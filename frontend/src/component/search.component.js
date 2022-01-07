@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { FaSearch } from "react-icons/fa";
-import axios from 'axios';
 
-export default function SearchBar() {
+
+export default function SearchBar(props) {
     const [searchVal, setSearchVal] = useState("");
-
-    const onSubmit = input => {
-        axios.get("http://localhost:3000")
-    }
 
     return(
         <view style={styles.horizontal}>
@@ -25,7 +21,7 @@ export default function SearchBar() {
                 color='white'
                 size={20}
                 style={styles.search}
-                onClick={onSubmit}
+                onClick={props.onSubmit}
             />
         </view>
     );

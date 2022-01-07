@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import gifsRouter from './routes/gifs.js'
+import ytRouter from './routes/youtube.routes.js'
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 */
-app.use('/yt', gifsRouter);
+app.use('/yt', ytRouter);
 
 const port = 5000;
 app.listen(port, () => {

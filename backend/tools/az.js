@@ -1,4 +1,4 @@
-import { findMoodResult, analyzeMood } from '../sentiment/sentiment';
+import { findMoodResult, analyzeMood } from './sentiment';
 
 const az = require('./index');
 
