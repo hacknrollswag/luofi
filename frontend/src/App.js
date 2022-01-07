@@ -1,9 +1,9 @@
 import './App.css';
 import { useState, setState } from 'react';
-import Player from './components/player.js';
+import Player from './component/player.js';
 import mockGifs from './assets/data/mockGifs';
-import SearchButton from "./components/search-button.component.js"
-import SearchBar from "./components/search-bar.component.js"
+import SearchButton from "./component/search-button.component.js"
+import SearchBar from "./component/search-bar.component.js"
 
 export default function App() {
 
