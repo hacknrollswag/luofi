@@ -1,17 +1,18 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+import express from "express"
+import cors from "cors"
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+import gifsRouter from './routes/gifs.js'
 
-require('dotenv').config();
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
-
 app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true }
+console.log('uri');
+/*mongoose.connect(uri, { useNewUrlParser: true }
 ).catch((err) => {
     console.log(err);
 });
@@ -19,11 +20,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
+*/
+app.use('/yt', gifsRouter);
 
-const gifsRouter = require('./routes/gifs');
-
-app.use('/gifs', gifsRouter);
-
+const port = 5000;
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
