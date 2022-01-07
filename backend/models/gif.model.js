@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema;
 
@@ -10,4 +10,4 @@ const gifSchema = new Schema({
 
 const Gif = mongoose.model('Gif', gifSchema);
 
-module.exports = Gif;
+export default Gif;

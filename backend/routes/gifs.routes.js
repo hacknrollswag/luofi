@@ -1,5 +1,7 @@
-const router = require('express').Router();
-let Gif = require('../models/gif.model');
+import express from 'express';
+import Gif from '../models/gif.model.js';
+
+const router = express.Router();
 
 router.route('/gifs/:mood').get((req, res) => {
   Gif.find({ mood: req.params.mood})
@@ -7,4 +9,4 @@ router.route('/gifs/:mood').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-module.exports = router;
+export default router;
