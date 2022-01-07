@@ -8,12 +8,13 @@ router.route('/artist/:artist/song/:song').get((req, res) => {
     youtube.get("/search", {
       params: {
         ...baseTerms,
-        q: req.params.artist
+        q: req.params.artist + " " + req.params.song
       },
     })
     .then(response => {
-      console.log(response.data.items.length);
-      res.json(response.data.items[0].id.videoId);
+        console.log("Returning search result...");
+        console.log(response.data.items[0].id.videoId);
+        res.json(response.data.items[0].id.videoId);
     })
     .catch(err => res.status(401).json('Error: ' + err));
   });

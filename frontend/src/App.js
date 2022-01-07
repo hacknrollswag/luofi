@@ -22,9 +22,9 @@ export default function App() {
     const searchTerms = input.split(",");
     const url = `http://localhost:5000/yt/artist/${searchTerms[0]}/song/${searchTerms[1]}`;
 
-    const vids = await axios.get(url);
-    console.log(`search successful, ${vids.length} videos found`)
-    setVideoId(vids[0].id.videoId);
+    const vid = await axios.get(url).then(res => res.data);
+    console.log(`search successful, ${vid} video-id found`)
+    setVideoId(vid);
   }
 
   const gifStyles = {
@@ -39,7 +39,7 @@ export default function App() {
   return (
     <div className="App" style={gifStyles}>
         <Search onSubmit={onClickSearch}/>
-        <Player />
+        <Player vid= {videoId}/>
         <div style={{width: "100%", height: "800px"}}
           onClick={changeImg} />
     </div>

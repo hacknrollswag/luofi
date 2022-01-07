@@ -21,7 +21,7 @@ export default function SearchBar(props) {
                 color='white'
                 size={20}
                 style={styles.search}
-                onClick={props.onSubmit}
+                onClick={() => { props.onSubmit(searchVal); }}
             />
         </view>
     );
