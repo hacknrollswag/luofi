@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, setState } from 'react';
+import Player from './component/player.js';
+import mockGifs from './assets/data/mockGifs';
+import SearchButton from "./component/search-button.component.js"
+import SearchBar from "./component/search-bar.component.js"
 
-function App() {
+export default function App() {
+
+  const [index, setIndex] = useState(0);
+
+  const changeImg = () => {
+    if (index + 1 === mockGifs.length) {
+      setIndex(0);
+    } else {
+      setIndex(index + 1);
+    }
+  }
+
+  const gifStyles = {
+    backgroundImage: `url(${mockGifs[index].url})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    width: "100%",
+    height: "100%"
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={gifStyles}>
+        <SearchBar />
+        <SearchButton />
+        <Player />
+        <div style={{width: "100%", height: "800px"}}
+          onClick={changeImg} />
     </div>
-  );
-}
-
-export default App;
+  )
+};
