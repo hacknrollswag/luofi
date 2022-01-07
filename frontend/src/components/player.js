@@ -8,8 +8,8 @@ export default class Player extends Component {
         return (
         <div>
             <iframe
-                width="0"
-                height="0"
+                width="100"
+                height="100"
                 src={videoSrc}
                 frameBorder="0"
                 allow="autoplay"
