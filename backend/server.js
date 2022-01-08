@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import ytRouter from './routes/youtube.routes.js'
+import router from './router.js'
 
 dotenv.config();
 
@@ -12,7 +12,7 @@ app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
 console.log('uri');
-/*mongoose.connect(uri, { useNewUrlParser: true }
+mongoose.connect(uri, { useNewUrlParser: true }
 ).catch((err) => {
     console.log(err);
 });
@@ -20,8 +20,8 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
-*/
-app.use('/yt', ytRouter);
+
+app.use(router);
 
 const port = 5000;
 app.listen(port, () => {
