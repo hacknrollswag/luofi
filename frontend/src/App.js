@@ -21,7 +21,7 @@ export default function App() {
 
   const onClickSearch = (input) => {
     const searchTerms = input.split(",");
-    const BASE_URL = `http://localhost:5000/artist/${searchTerms[0]}/song/${searchTerms[1]}`;
+    const BASE_URL = `http://localhost:5000/artist/${searchTerms[1]}/song/${searchTerms[0]}`;
     findYt(BASE_URL + "/yt");
     findGifs(BASE_URL + "/gifs");
     
@@ -34,6 +34,7 @@ export default function App() {
   }
 
   const findGifs = async (url) => {
+    setGifs([]);
     const g = await axios.get(url).then(res => res.data);
     console.log(`search successful, ${g.length} gifs found`)
     setGifs(g);

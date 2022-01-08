@@ -1,13 +1,12 @@
 import Gif from '../models/gif.model.js';
 
-export default function(mood, action) {
+export default function(moodVal, action) {
     
-    const skipNum = Math.random() * 10;
     const MOODS = ["happy", "neutral", "sad"];
 
-    Gif.find({ mood: MOODS[mood]})
+    Gif.find({ mood: MOODS[moodVal]})
         .then(gifs => {
-            console.log(`Adding ${gifs.length} ${MOODS[mood]} gifs`);
+            console.log(`Adding ${gifs.length} ${MOODS[moodVal]} gifs`);
             action(gifs);
         })
         .catch(err => {

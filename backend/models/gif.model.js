@@ -3,9 +3,8 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
 const gifSchema = new Schema({
-  category: { type: String, required: true },
-}, {
-  timestamps: true,
+  url: { type: String, required: true },
+  mood: { type: String, required: true },
 });
 
 const Gif = mongoose.model('Gif', gifSchema);

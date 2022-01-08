@@ -28,12 +28,11 @@ export function findMoodResult(lyrics) {
 // }
 
 export function analyzeMood(result) {
-    const score = result.score;
-    const total = result.tokens.length;
+    const score = result.comparative;
 
-    if (score > total / 3) {
+    if (score > 0.3) {
         return 0;
-    } else if (score >= -total / 3) {
+    } else if (score >= 0) {
         return 1;
     } else {
         return 2;
