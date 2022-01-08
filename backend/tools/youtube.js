@@ -17,11 +17,11 @@ export const youtube = axios.create({
   baseURL: "https://www.googleapis.com/youtube/v3/",
 });
 
-export async function searchVideo (artist, song) {
+export async function searchVideo(artist, song) {
   const response = await youtube.get("/search", {
     params: {
       ...baseTerms,
-      q: artist | song,
+      q: artist + " " + song,
     },
   });
   return response.data.items;

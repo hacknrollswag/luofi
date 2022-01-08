@@ -1,11 +1,10 @@
-import { findMoodResult, analyzeMood } from './sentiment';
+//import { findMoodResult, analyzeMood } from './sentiment';
+import az from 'search-azlyrics/index.js'
 
-const az = require('./index');
-
-export function search(artist, song) {
+export default async function search(artist, song) {
     const lowerArtist = artist.toLowerCase();
     const lowerSong = song.toLowerCase();
 
-    az.search(lowerArtist, lowerSong)
-        .then(lyrics => analyzeMood(findMoodResult(lyrics))); // returns an arr
+    const lyrics = await az.search(artist, song)
+    return lyrics;
 }
