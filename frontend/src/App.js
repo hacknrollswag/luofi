@@ -4,6 +4,7 @@ import axios from 'axios';
 import Player from './component/player.js';
 import background from './assets/images/lofi-0.jpeg';
 import Search from "./component/search.component.js";
+import 'typeface-roboto';
 
 export default function App() {
 
@@ -47,15 +48,21 @@ export default function App() {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     width: "100%",
-    height: "100%"
+    height: "100%",
   };
 
   return (
     <div className="App" style={gifsPlayer}>
         <Search onSubmit={onClickSearch}/>
         <Player vid= {videoId}/>
-        <div style={{width: "100%", height: "800px"}}
-          onClick={changeImg} />
+        <div style={{width: "100%", height: "770px"}}
+          onClick={changeImg}>
+            <div style={{ fill: true, display: "flex", fontFamily: "roboto",
+        flex: 1, flexDirection: "column",justifyContent: "left", alignItems: "left"}}>
+            <h1 style={{color: "white", fontSize: "78px", marginBottom:"0"}}>Welcome</h1>
+            <p style={{color: "white", fontSize: "30px"}}>Search and play a song!</p>
+            </div>
+        </div>
     </div>
   )
 };
